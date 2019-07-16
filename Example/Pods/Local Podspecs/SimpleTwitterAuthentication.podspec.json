@@ -1,0 +1,26 @@
+{
+  "name": "SimpleTwitterAuthentication",
+  "version": "1.0.0",
+  "license": "Apache License, Version 2.0",
+  "homepage": "http://github.com/pirika-association/TwitterAuthentication",
+  "authors": {
+    "Nobuhiro Ito": "ito@pirika.org"
+  },
+  "summary": "Simple Twitter Authentication Wrapper",
+  "source": {
+    "git": "http://github.com/pirika-association/TwitterAuthentication.git",
+    "tag": "1.0.0"
+  },
+  "module_name": "SimpleTwitterAuthentication",
+  "swift_versions": "4.2",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Sources/*.{swift}",
+  "dependencies": {
+    "OAuthSwift": [
+      "~> 1.4"
+    ]
+  },
+  "swift_version": "4.2"
+}

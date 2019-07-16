@@ -1,0 +1,6 @@
+framework module SimpleTwitterAuthentication {
+  umbrella header "SimpleTwitterAuthentication-umbrella.h"
+
+  export *
+  module * { export * }
+}
