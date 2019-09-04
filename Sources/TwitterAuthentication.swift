@@ -312,7 +312,7 @@ extension TwitterAuthentication: OAuthSwiftURLHandlerType {
     }
 }
 
-@available(iOS 12.0, *)
+@available(iOS 13.0, *)
 extension TwitterAuthentication: ASWebAuthenticationPresentationContextProviding {
     
     public func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
