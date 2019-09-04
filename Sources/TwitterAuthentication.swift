@@ -271,6 +271,9 @@ extension TwitterAuthentication: OAuthSwiftURLHandlerType {
                     self.callbacked(.failed(error: err))
                 }
             })
+            if #available(iOS 13, *) {
+                session.presentationContextProvider = self
+            }
             if !session.start() {
                 return onSessionStartFailed()
             }
@@ -306,6 +309,15 @@ extension TwitterAuthentication: OAuthSwiftURLHandlerType {
                 else { return onSessionStartFailed() }
             viewController.present(session, animated: true, completion: nil)
         }
+    }
+}
+
+@available(iOS 12.0, *)
+extension TwitterAuthentication: ASWebAuthenticationPresentationContextProviding {
+    
+    public func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        guard let window = UIApplication.shared.keyWindow else { fatalError("keyWindow not detected.") }
+        return window
     }
 }
 
