@@ -51,15 +51,17 @@ public class TwitterAuthentication: NSObject {
     private var completionHandler: CompletionHandler?
     private var state: AuthorizationState = .initial
     private var authenticationSessionObject: Any?
+    private var useSafariView = false
     
     private var oauth: OAuth1Swift?
     
-    public init?(consumerKey: String, consumerSecret: String, callbackScheme: String) {
+    public init?(consumerKey: String, consumerSecret: String, callbackScheme: String, useSafariView: Bool = false) {
         guard let callbackURL = URL(string: "\(callbackScheme)://")
             else { return nil }
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
         self.callbackURL = callbackURL
+        self.useSafariView = useSafariView
     }
     
     public func authenticate(completionHandler: @escaping CompletionHandler) {
@@ -163,6 +165,10 @@ private extension TwitterAuthentication {
 private extension TwitterAuthentication {
     
     func openSSO(completionHandler: @escaping (Bool) -> ())  {
+        if useSafariView {
+            completionHandler(false)
+            return
+        }
         guard let url = URL(string: "twitterauth://authorize?consumer_key=\(consumerKey)&consumer_secret=\(consumerSecret)&oauth_callback=\(callbackURL.scheme ?? "")")
             else { return completionHandler(false) }
         UIApplication.shared.open(url, options: [:], completionHandler: { [weak self] in
