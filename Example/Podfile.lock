@@ -1,6 +1,6 @@
 PODS:
   - OAuthSwift (1.4.1)
-  - SimpleTwitterAuthentication (1.0.0):
+  - SimpleTwitterAuthentication (2.0.0):
     - OAuthSwift (~> 1.4)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   OAuthSwift: f86a25d96cfc179e5943122b0f85b99b96f92299
-  SimpleTwitterAuthentication: 29c83a025211cf2c879af8445431318fb8e98b52
+  SimpleTwitterAuthentication: b2b3d3275404c2de7d45f701529a2ed65289652c
 
 PODFILE CHECKSUM: 29077c9e1ba2fd78b060eb48fbbcb27f7be0ba37
 
