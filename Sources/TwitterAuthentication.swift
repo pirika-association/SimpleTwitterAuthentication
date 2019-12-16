@@ -74,7 +74,6 @@ public class TwitterAuthentication: NSObject {
     
     public func handleOpen(_ url: URL, options: [UIApplication.OpenURLOptionsKey:Any]) -> Bool {
         guard url.scheme == callbackURL.scheme,
-            validateAcceptableSourceApp(options),
             state != .initial,
             state != .requestingToken
             else { return false }
@@ -208,14 +207,6 @@ private extension TwitterAuthentication {
                 self.onCancelled()
             }
         }
-    }
-    
-    func validateAcceptableSourceApp(_ options: [UIApplication.OpenURLOptionsKey:Any]) -> Bool {
-        guard let source = options[.sourceApplication] as? String else {
-            return false
-        }
-        return source.hasPrefix("com.twitter") || source.hasPrefix("com.atebits") // Twitter App
-                || source.hasPrefix("com.apple.SafariViewService") // SFSafariViewController
     }
 }
 
