@@ -52,7 +52,11 @@ public class TwitterAuthentication: NSObject {
     private var state: AuthorizationState = .initial
     private var authenticationSessionObject: Any?
     
-    private var oauth: OAuth1Swift?
+    private var oauth: OAuth1Swift? {
+        didSet(oldValue) {
+            oldValue?.cancel()
+        }
+    }
     
     public init?(consumerKey: String, consumerSecret: String, callbackScheme: String) {
         guard let callbackURL = URL(string: "\(callbackScheme)://")
