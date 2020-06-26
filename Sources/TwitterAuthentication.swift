@@ -233,21 +233,19 @@ extension TwitterAuthentication: OAuthSwiftURLHandlerType {
         oauth.authorizeURLHandler = self
         self.oauth = oauth
         self.state = .browser
-        
-        let _ = oauth.authorize(
-            withCallbackURL: callbackURL,
-            success: { [weak self] credential, response, parameters in
-                guard let `self` = self else { return }
+        oauth.authorize(withCallbackURL: callbackURL) { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success((let credential, _, let parameters)):
                 // complete
                 let token = credential.oauthToken
                 let secret = credential.oauthTokenSecret
                 let screenName = (parameters["screen_name"] as? String) ?? ""
                 self.onCompleted(token: token, secret: secret, screenName: screenName)
-            },
-            failure: { [weak self] error in
-                self?.onFailed(error: error)
+            case .failure(let error):
+                self.onFailed(error: error)
             }
-        )
+        }
     }
     
     public func handle(_ url: URL) {

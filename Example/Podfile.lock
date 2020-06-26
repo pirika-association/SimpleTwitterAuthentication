@@ -1,13 +1,13 @@
 PODS:
-  - OAuthSwift (1.4.1)
-  - SimpleTwitterAuthentication (2.0.0):
-    - OAuthSwift (~> 1.4)
+  - OAuthSwift (2.1.0)
+  - SimpleTwitterAuthentication (2.0.2):
+    - OAuthSwift (~> 2.1)
 
 DEPENDENCIES:
   - SimpleTwitterAuthentication (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - OAuthSwift
 
 EXTERNAL SOURCES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  OAuthSwift: f86a25d96cfc179e5943122b0f85b99b96f92299
-  SimpleTwitterAuthentication: b2b3d3275404c2de7d45f701529a2ed65289652c
+  OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
+  SimpleTwitterAuthentication: b814f850094ffbbb79f43b1685d01850e9c3a380
 
 PODFILE CHECKSUM: 29077c9e1ba2fd78b060eb48fbbcb27f7be0ba37
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.3
