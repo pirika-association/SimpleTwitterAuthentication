@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "SimpleTwitterAuthentication"
-  spec.version      = "2.0.1"
+  spec.version      = "2.0.2"
   spec.license      = "Apache License, Version 2.0"
   spec.homepage     = "https://github.com/pirika-association/SimpleTwitterAuthentication"
   spec.authors      = { "Nobuhiro Ito" => "ito@pirika.org" }
