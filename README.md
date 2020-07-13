@@ -11,11 +11,11 @@ SimpleTwitterAuthentication is a simple wrapper for Twitter login authentication
 ## How to use
 
 1. Complete registration to Twitter and get Consumer Key and Secret.
-**You also need add callback URL scheme to your app in Twitter Developer Console.**
-2. Install SimpleTwitterAuthentication to your project.
-3. Add callback URL scheme to URL Types in Info.plist
-4. Implement to call `TwitterAuthentication.authenticate(completionHandler:)` to your need to authenticate to Twitter. You need to store instance to it can access from AppDelegate.
-5. Implement to call `TwitterAuthentication.handleOpen(_:options:)` to `application(_:open:options:)` in AppDelegate
+2. **You also need add callback URL scheme of `twitterkit-($YOUR_CONSUMER_KEY)://` to your app in Twitter Developer Console.** It need for use by browser authentication.
+4. Install SimpleTwitterAuthentication to your project.
+5. Add callback URL scheme `twitterkit-($YOUR_CONSUMER_KEY)` to URL Types in Info.plist
+6. Implement to call `TwitterAuthentication.authenticate(completionHandler:)` to your need to authenticate to Twitter. When TwitterAuthentication instantiate, pass Consumer Key, Secret and Callback Scheme `twitterkit-($YOUR_CONSUMER_KEY)://`. You need to store instance to it can access from AppDelegate.
+7. Implement to call `TwitterAuthentication.handleOpen(_:options:)` to `application(_:open:options:)` in AppDelegate
 
 More detail, please refer to Example.
 
